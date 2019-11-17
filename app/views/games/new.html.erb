@@ -1,0 +1,15 @@
+  <h1 class="heading">Start a new game!</h1>
+
+  <ul>
+    <% @letters.each_with_index do |letter, index| %>
+    <li class="btn-list" style="font-size: 50px;"><%= letter %></li>
+    <% end %>
+  </ul>
+  <br>
+  <p></p>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+     <%= hidden_field_tag :input, @letters %>
+    <input type="text" class="searchbar" name="word">
+    <input type="submit" class="btn-play" value="Play!">
+  </form>
